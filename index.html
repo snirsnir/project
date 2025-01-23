@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>פרויקט מצוינות מדעית וגיבוש בין מגזרי</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 150px;
+            height: auto;
+            z-index: 1000;
+        }
+
+        header {
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: colorPulse 8s infinite;
+        }
+
+        @keyframes colorPulse {
+            0% { color: #ffffff; }
+            50% { color: #f0f8ff; }
+            100% { color: #ffffff; }
+        }
+
+        .intro {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .schedule {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .schedule h2 {
+            color: #2193b0;
+            margin-bottom: 1rem;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 12px;
+            text-align: right;
+            border: 1px solid #e0e0e0;
+        }
+
+        .schedule-table th {
+            background-color: #f8f9fa;
+            color: #2193b0;
+            font-weight: bold;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .schedule-table tr:hover {
+            background-color: #f0f7fa;
+        }
+
+        .courses {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .course-dropdown {
+            margin: 1rem 0;
+        }
+
+        .course-dropdown summary {
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #2193b0;
+        }
+
+        .course-dropdown details {
+            margin-bottom: 1rem;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+
+        .course-content {
+            padding: 1rem;
+        }
+
+        .lesson {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .lesson h3 {
+            color: #2193b0;
+            margin-bottom: 0.5rem;
+        }
+
+        .lesson p {
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                padding: 0 10px;
+            }
+
+            .logo {
+                width: 80px;
+                top: 10px;
+                left: 10px;
+            }
+
+            header {
+                padding: 1.5rem 0;
+            }
+
+            .intro, .schedule, .courses {
+                padding: 1rem;
+                margin-bottom: 1rem;
+                border-radius: 8px;
+            }
+
+            .schedule-table {
+                display: block;
+                overflow-x: auto;
+                font-size: 0.9rem;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 8px;
+                white-space: nowrap;
+            }
+
+            .lesson {
+                padding: 0.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .lesson h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .lesson p {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+
+            .course-dropdown summary {
+                padding: 0.8rem;
+                font-size: 1.1rem;
+            }
+
+            .course-content {
+                padding: 0.8rem;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .intro p {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://media.getmood.io/warehouse/dynamic/260476.svg" alt="לוגו טכנודע" class="logo">
+    
+    <header>
+        <div class="container">
+            <h1>פרויקט מצוינות מדעית וגיבוש בין מגזרי</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <p>הורים וילדים יקרים, אנו שמחים לעדכנכם שילדכם נבחר לקחת חלק בפרוייקט סמסטריאלי מיוחד המקדם מצוינות מדעית טכנולוגית במוזיאון הרפואה הישראלי, טכנודע.</p>
+            <br>
+            <p>בשנים האחרונות, יותר מתמיד, קיים צורך ממשי לקידום נושאים שלגביהם קיים קונצנזוס ערכי וחברתי ששני העמים יכולים לפעול במשותף לקידומם. החינוך המדעי טכנולוגי שמצד אחד מהנה, חוויתי ומקשר בין אלו העוסקים בו ומצד שני מהווה כלי לגישור פערים חברתיים, יכול לשמש ככלי עוצמתי לגישור וליצירת קשר חברתי ערכי ובסיס טוב לשיתוף פעולה ארוך טווח.</p>
+            <br>
+            <p>אנו שואפים שהתכנית תסייע בהפחתת חששות ודעות קדומות ותייצר חשיפה לתרבות הזרה. תפתח סבלנות, אמון והבנה הדדית ותיצור מחויבות ואמונה ביכולת עשייה משותפת, רב תרבותית, למען עתיד החברה הישראלית כולה.</p>
+        </section>
+
+        <section class="schedule">
+            <h2>לוח זמנים</h2>
+            <p><strong>תאריך התחלה:</strong> 4/2</p>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>שעה</th>
+                        <th>פעילות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>13:30</td>
+                        <td>איסוף מבית הספר</td>
+                    </tr>
+                    <tr>
+                        <td>14:10</td>
+                        <td>הגעה לטכנודע + ארוחת צהריים</td>
+                    </tr>
+                    <tr>
+                        <td>14:45-16:15</td>
+                        <td>קורס כימיה מעורב עם ילדי אפיקים (מעבדות 5, 4)</td>
+                    </tr>
+                    <tr>
+                        <td>16:15-16:40</td>
+                        <td>הפסקה</td>
+                    </tr>
+                    <tr>
+                        <td>16:40-18:10</td>
+                        <td>גיימינג – מחשבים 1</td>
+                    </tr>
+                    <tr>
+                        <td>18:10</td>
+                        <td>יציאה לכיוון הבית</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="courses">
+            <h2>תכנים</h2>
+            <details class="course-dropdown">
+                <summary>קורס כימיה</summary>
+                <div class="course-content">
+                    <div class="lesson">
+                        <h3>שיעור 1-2: תכונות המים</h3>
+                        <p>מחקר מעמיק של תכונות המים (H2O) דרך ניסויים והתנסויות מעשיות. נלמד על האנומליה של המים, מתח פנים, טמפרטורת רתיחה ונקודת קיפאון. נחקור את השפעת המלח על המים ונסיים בהכנת גלידה בעזרת מי מלח.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 3: הסבון</h3>
+                        <p>גילוי סודות הסבון ותכונות הניקוי שלו. נלמד על מבנה מולקולת הדטרגנט (ראש הידרופילי וזנב הידרופובי) ונחקור את הקשר בין קצף לעוצמת הניקוי.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 4: זכוכית</h3>
+                        <p>חקר המבנה המולקולרי של הזכוכית, הכרת סוגי זכוכית שונים ושימושיהם. נתנסה בניסויים שונים כולל מסיסות זכוכית סודה ונכין בקבוקי חול צבעוני.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 5: סוכרים</h3>
+                        <p>צלילה לעולם הפחמימות והסוכרים. נלמד על חד-סוכר, דו-סוכר ורב-סוכר, נזהה סוכרים במזונות שונים ונצפה בתהליך הפיכת סוכר ועמילן לפחם.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 6-7: מלחים וגבישים</h3>
+                        <p>חקר עולם המלחים והגבישים, למידה על תהליכי התגבשות וצורות גיאומטריות בטבע. נתנסה בהכנת "גביש פלא" ונחקור תכונות ייחודיות של מלחים.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 8-9: פולימרים</h3>
+                        <p>הכרת עולם הפולימרים ומבניהם. נכין מודל מ-FIMO, נחקור פולימר מחלב ופולימר סופג (SAP). נכין סליים ויצירות ג'ל.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 10: בישול מולקולרי</h3>
+                        <p>התנסות בטכניקות בישול מתקדמות המשלבות כימיה. נכין פופקורן בחנקן נוזלי, "קוויאר" מיוחד ומשקה ייחודי עם לציטין.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 11: צבעי מאכל</h3>
+                        <p>חקר צבעי מאכל טבעיים ומלאכותיים. נכין "אטריות חד קרן" שמשנות צבע ונלמד על אינדיקטורים טבעיים לחומציות.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 12: שוקולד</h3>
+                        <p>למידה על הרכב השוקולד, ערכו התזונתי והשפעותיו הבריאותיות. נזהה אבות מזון בשוקולד ונכין שוקולד בריא.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 13: כימיה בחלל</h3>
+                        <p>חקר המקורות הקוסמיים של האטומים ותהליכים כימיים במערכת השמש. נערוך ניסויים המדמים תנאים בכוכבי לכת שונים.</p>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>שיעור 14: אש, עשן ופיצוצים</h3>
+                        <p>חקר יסודות דליקים ותגובות כימיות. נערוך ניסויים בטוחים כמו שריפת נייר ניטרוצלולוזה, יצירת "ג'יני בבקבוק" והתפרצות געשית.</p>
